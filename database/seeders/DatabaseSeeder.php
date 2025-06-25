@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             AssetAssignmentSeeder::class,
             MaintenanceTypeSeeder::class,
             MaintenanceSeeder::class,
+            UserActivitySeeder::class,
         ]);
 
     }
