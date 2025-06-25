@@ -12,6 +12,9 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
+use Filament\Tables\Columns\TextColumn;
 
 class LocationResource extends Resource
 {
@@ -23,7 +26,16 @@ class LocationResource extends Resource
     {
         return $form
             ->schema([
-                //
+                TextInput::make('name')
+                ->label('Nama Lokasi')
+                ->required(),
+
+                Select::make('parent_id')
+                    ->label('Induk Lokasi')
+                    ->relationship('parent', 'name')
+                    ->searchable()
+                    ->preload()
+                    ->nullable(),
             ]);
     }
 
@@ -31,7 +43,8 @@ class LocationResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('name')->label('Nama'),
+                TextColumn::make('parent.name')->label('Induk Lokasi')->sortable(),
             ])
             ->filters([
                 //
