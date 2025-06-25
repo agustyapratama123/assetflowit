@@ -61,6 +61,10 @@ class User extends Authenticatable
         return $this->hasMany(UserActivity::class);
     }
 
+    public function ipAddresses()
+    {
+        return $this->hasMany(UserIpAddress::class);
+    }
 
 
 }

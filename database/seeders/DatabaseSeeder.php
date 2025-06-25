@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             MaintenanceTypeSeeder::class,
             MaintenanceSeeder::class,
             UserActivitySeeder::class,
+            UserIpAddressSeeder::class,
         ]);
 
     }
