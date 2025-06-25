@@ -45,4 +45,10 @@ class Asset extends Model
     {
         return $this->belongsTo(AssetStatus::class, 'asset_status_id');
     }
+
+    public function assignments()
+    {
+        return $this->hasMany(AssetAssignment::class);
+    }
+
 }

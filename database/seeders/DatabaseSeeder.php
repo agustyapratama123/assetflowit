@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             VendorSeeder::class,
             AssetStatusSeeder::class,
             AssetSeeder::class,
+            AssetAssignmentSeeder::class,
         ]);
 
     }
