@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             LocationSeeder::class,
             VendorSeeder::class,
+            AssetStatusSeeder::class,
         ]);
 
     }
