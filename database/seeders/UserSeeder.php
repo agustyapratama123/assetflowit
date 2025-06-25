@@ -16,31 +16,31 @@ class UserSeeder extends Seeder
                 'name' => 'Admin System',
                 'email' => 'admin@example.com',
                 'role' => 'admin',
-                'password' => 'password123',
+                'password' => 'password',
             ],
             [
                 'name' => 'Teknisi Aset',
                 'email' => 'technician@example.com',
                 'role' => 'technician',
-                'password' => 'password123',
+                'password' => 'password',
             ],
             [
                 'name' => 'Karyawan Umum',
                 'email' => 'employee@example.com',
                 'role' => 'employee',
-                'password' => 'password123',
+                'password' => 'password',
             ],
             [
                 'name' => 'Auditor Sistem',
                 'email' => 'auditor@example.com',
                 'role' => 'auditor',
-                'password' => 'password123',
+                'password' => 'password',
             ],
             [
                 'name' => 'Manajer Divisi',
                 'email' => 'manager@example.com',
                 'role' => 'manager',
-                'password' => 'password123',
+                'password' => 'password',
             ],
         ];
 
