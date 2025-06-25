@@ -56,5 +56,11 @@ class User extends Authenticatable
         return $this->hasMany(AssetAssignment::class);
     }
 
+    public function activities()
+    {
+        return $this->hasMany(UserActivity::class);
+    }
+
+
 
 }
