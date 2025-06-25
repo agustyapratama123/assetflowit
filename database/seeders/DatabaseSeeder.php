@@ -23,6 +23,8 @@ class DatabaseSeeder extends Seeder
             AssetStatusSeeder::class,
             AssetSeeder::class,
             AssetAssignmentSeeder::class,
+            MaintenanceTypeSeeder::class,
+            MaintenanceSeeder::class,
         ]);
 
     }
