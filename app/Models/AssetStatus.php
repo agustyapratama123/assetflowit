@@ -13,4 +13,10 @@ class AssetStatus extends Model
     // {
     //     return $this->hasMany(Asset::class);
     // }
+
+    public function assets()
+    {
+        return $this->hasMany(Asset::class, 'asset_status_id');
+    }
+
 }

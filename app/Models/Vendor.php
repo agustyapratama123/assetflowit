@@ -14,5 +14,10 @@ class Vendor extends Model
         'address',
     ];
 
+    public function assets()
+    {
+        return $this->hasMany(Asset::class);
+    }
+
     // Tambahkan relasi jika nanti vendor terkait dengan asset, kontrak, atau garansi
 }

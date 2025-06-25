@@ -8,4 +8,9 @@ class Category extends Model
 {
     protected $fillable = ['name', 'description'];
 
+    public function assets()
+    {
+        return $this->hasMany(Asset::class);
+    }
+
 }
