@@ -11,6 +11,7 @@ return new class extends Migration {
             $table->id();
             $table->string('asset_tag', 50)->unique();
             $table->string('name', 100);
+            $table->unsignedInteger('quantity')->default(1)->comment('Jumlah unit aset ini');
 
             $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete();
             $table->foreignId('vendor_id')->constrained('vendors')->cascadeOnDelete();
