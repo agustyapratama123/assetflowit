@@ -62,11 +62,14 @@ class UserIpAddressResource extends Resource
                     ->nullable(),
                 
                 Select::make('category_id')
-                    ->label('Category')
                     ->relationship('category', 'name')
                     ->searchable()
-                    ->preload()
-                    ->nullable(),
+                    ->required()
+                    ->createOptionForm([
+                        TextInput::make('name')
+                            ->label('Nama')
+                            ->required(),
+                ]),
 
                 DateTimePicker::make('assigned_at')
                     ->label('Waktu Penugasan')

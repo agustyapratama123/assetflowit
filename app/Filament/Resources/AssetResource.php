@@ -48,11 +48,14 @@ class AssetResource extends Resource
                     ->minValue(1),
 
                 Select::make('category_id')
-                    ->label('Kategori')
                     ->relationship('category', 'name')
                     ->searchable()
-                    ->preload()
-                    ->required(),
+                    ->required()
+                    ->createOptionForm([
+                        TextInput::make('name')
+                            ->label('Nama')
+                            ->required(),
+                ]),
 
                 Select::make('vendor_id')
                     ->label('Vendor')
@@ -136,8 +139,8 @@ class AssetResource extends Resource
     {
         return [
             'index' => Pages\ListAssets::route('/'),
-            'create' => Pages\CreateAsset::route('/create'),
-            'edit' => Pages\EditAsset::route('/{record}/edit'),
+            // 'create' => Pages\CreateAsset::route('/create'),
+            // 'edit' => Pages\EditAsset::route('/{record}/edit'),
         ];
     }
 }

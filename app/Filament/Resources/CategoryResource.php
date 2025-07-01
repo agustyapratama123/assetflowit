@@ -44,7 +44,7 @@ class CategoryResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name')->label('Nama'),
-                TextColumn::make('description')->label('Deskripsi')->limit(50),
+                TextColumn::make('description')->label('Deskripsi')->limit(50)->placeholder('—'),
             ])
             ->filters([
                 //
