@@ -13,9 +13,6 @@ class Asset extends Model
         'quantity',
         'category_id',
         'vendor_id',
-        'location_id',
-        'user_id',
-        'asset_status_id',
         'purchase_date',
         'warranty_expiry',
         'description',
@@ -29,21 +26,6 @@ class Asset extends Model
     public function vendor(): BelongsTo
     {
         return $this->belongsTo(Vendor::class);
-    }
-
-    public function location(): BelongsTo
-    {
-        return $this->belongsTo(Location::class);
-    }
-
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class);
-    }
-
-    public function status(): BelongsTo
-    {
-        return $this->belongsTo(AssetStatus::class, 'asset_status_id');
     }
 
     public function assignments()

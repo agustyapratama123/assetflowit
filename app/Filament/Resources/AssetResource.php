@@ -64,26 +64,7 @@ class AssetResource extends Resource
                     ->preload()
                     ->required(),
 
-                Select::make('location_id')
-                    ->label('Lokasi')
-                    ->relationship('location', 'name')
-                    ->searchable()
-                    ->preload()
-                    ->required(),
-
-                Select::make('user_id')
-                    ->label('Pengguna')
-                    ->relationship('user', 'name')
-                    ->searchable()
-                    ->preload()
-                    ->required(),
-
-                Select::make('asset_status_id')
-                    ->label('Status Aset')
-                    ->relationship('status', 'name')
-                    ->searchable()
-                    ->preload()
-                    ->required(),
+                
 
                 DatePicker::make('purchase_date')
                     ->label('Tanggal Pembelian')
@@ -109,9 +90,7 @@ class AssetResource extends Resource
                 TextColumn::make('quantity')->label('Jumlah')->sortable(),
                 TextColumn::make('category.name')->label('Kategori'),
                 TextColumn::make('vendor.name')->label('Vendor'),
-                TextColumn::make('location.name')->label('Lokasi'),
-                TextColumn::make('user.name')->label('Pengguna'),
-                TextColumn::make('status.name')->label('Status'),
+                
                 TextColumn::make('purchase_date')->label('Beli')->date(),
                 TextColumn::make('warranty_expiry')->label('Garansi')->date(),
             ])

@@ -20,9 +20,9 @@ class Location extends Model
         return $this->hasMany(Location::class, 'parent_id');
     }
 
-    public function assets()
+    public function assignment()
     {
-        return $this->hasMany(Asset::class);
+        return $this->hasMany(AssetAssignment::class);
     }
 
     public function ipAddresses()

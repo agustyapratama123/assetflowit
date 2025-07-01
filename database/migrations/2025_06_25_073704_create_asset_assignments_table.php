@@ -12,7 +12,8 @@ return new class extends Migration {
 
             $table->foreignId('asset_id')->constrained('assets')->cascadeOnDelete();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-
+            $table->foreignId('location_id')->constrained('locations')->cascadeOnDelete();
+            $table->foreignId('asset_status_id')->constrained('asset_statuses')->cascadeOnDelete();
             $table->dateTime('assigned_at');
             $table->dateTime('returned_at')->nullable();
             $table->text('note')->nullable();

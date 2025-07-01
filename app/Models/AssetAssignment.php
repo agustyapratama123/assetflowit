@@ -10,6 +10,8 @@ class AssetAssignment extends Model
     protected $fillable = [
         'asset_id',
         'user_id',
+        'location_id',
+        'asset_status_id',
         'assigned_at',
         'returned_at',
         'note',
@@ -24,4 +26,16 @@ class AssetAssignment extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function location(): BelongsTo
+    {
+        return $this->belongsTo(Location::class);
+    }
+
+    public function status(): BelongsTo
+    {
+        return $this->belongsTo(AssetStatus::class, 'asset_status_id');
+    }
+
+    
 }

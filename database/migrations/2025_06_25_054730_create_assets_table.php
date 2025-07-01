@@ -12,13 +12,8 @@ return new class extends Migration {
             $table->string('asset_tag', 50)->unique();
             $table->string('name', 100);
             $table->unsignedInteger('quantity')->default(1)->comment('Jumlah unit aset ini');
-
             $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete();
             $table->foreignId('vendor_id')->constrained('vendors')->cascadeOnDelete();
-            $table->foreignId('location_id')->constrained('locations')->cascadeOnDelete();
-            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-            $table->foreignId('asset_status_id')->constrained('asset_statuses')->cascadeOnDelete();
-
             $table->date('purchase_date')->nullable();
             $table->date('warranty_expiry')->nullable();
             $table->text('description')->nullable();

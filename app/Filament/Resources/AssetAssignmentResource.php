@@ -17,6 +17,9 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\DateTimeColumn;
+use Filament\Forms\Components\TextInput;
+
+
 
 class AssetAssignmentResource extends Resource
 {
@@ -36,9 +39,27 @@ class AssetAssignmentResource extends Resource
                 ->required(),
 
                 Select::make('user_id')
-                    ->label('Pengguna')
                     ->relationship('user', 'name')
                     ->searchable()
+                    ->required()
+                    ->createOptionForm([
+                        TextInput::make('name')
+                            ->label('Nama')
+                            ->required(),
+                ]),
+
+                Select::make('location_id')
+                    ->label('Lokasi')
+                    ->relationship('location', 'name')
+                    ->searchable()
+                    ->preload()
+                    ->required(),
+
+                Select::make('asset_status_id')
+                    ->label('Status Aset')
+                    ->relationship('status', 'name')
+                    ->searchable()
+                    ->preload()
                     ->required(),
 
                 DateTimePicker::make('assigned_at')
@@ -62,6 +83,8 @@ class AssetAssignmentResource extends Resource
             ->columns([
                 TextColumn::make('asset.name')->label('Aset'),
                 TextColumn::make('user.name')->label('Pengguna'),
+                TextColumn::make('location.name')->label('Lokasi'),
+                TextColumn::make('status.name')->label('Status'),
                 TextColumn::make('assigned_at')
                     ->label('Tgl Penugasan')
                     ->dateTime()
