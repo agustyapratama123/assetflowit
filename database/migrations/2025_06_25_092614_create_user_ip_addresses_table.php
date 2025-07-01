@@ -14,9 +14,17 @@ return new class extends Migration {
             $table->string('ip_address', 45)->unique(); // support IPv4 dan IPv6
 
             $table->foreignId('asset_id')->nullable()->constrained('assets')->nullOnDelete();
-
+            $table->foreignId('location_id')
+              ->nullable()
+              ->constrained('locations')
+              ->nullOnDelete();
+            $table->foreignId('category_id')
+              ->nullable()
+              ->constrained('categories')
+              ->nullOnDelete();
             $table->dateTime('assigned_at');
             $table->dateTime('released_at')->nullable();
+            
 
             $table->text('notes')->nullable();
 

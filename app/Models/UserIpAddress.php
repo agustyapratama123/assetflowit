@@ -11,6 +11,8 @@ class UserIpAddress extends Model
         'user_id',
         'ip_address',
         'asset_id',
+        'category_id',
+        'location_id',
         'assigned_at',
         'released_at',
         'notes',
@@ -25,4 +27,15 @@ class UserIpAddress extends Model
     {
         return $this->belongsTo(Asset::class);
     }
+
+    public function location()
+    {
+        return $this->belongsTo(Location::class);
+    }
+    
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
 }

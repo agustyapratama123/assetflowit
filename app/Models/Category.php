@@ -13,4 +13,9 @@ class Category extends Model
         return $this->hasMany(Asset::class);
     }
 
+    public function ipAddresses()
+    {
+        return $this->hasMany(UserIpAddress::class);
+    }
+
 }

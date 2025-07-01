@@ -11,6 +11,10 @@ class CategorySeeder extends Seeder
     {
         $categories = [
             [
+                'name' => 'PC',
+                'description' => 'Komputer desktop untuk keperluan operasional dan administratif',
+            ],
+            [
                 'name' => 'Laptop',
                 'description' => 'Perangkat komputer portabel untuk staf dan operasional',
             ],

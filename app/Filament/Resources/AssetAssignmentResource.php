@@ -75,9 +75,12 @@ class AssetAssignmentResource extends Resource
             ->filters([
                 //
             ])
+            
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make()->slideOver() // atau ->modal()
+                ->label('Ubah'),
             ])
+            
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
@@ -96,8 +99,8 @@ class AssetAssignmentResource extends Resource
     {
         return [
             'index' => Pages\ListAssetAssignments::route('/'),
-            'create' => Pages\CreateAssetAssignment::route('/create'),
-            'edit' => Pages\EditAssetAssignment::route('/{record}/edit'),
+            // 'create' => Pages\CreateAssetAssignment::route('/create'),
+            // 'edit' => Pages\EditAssetAssignment::route('/{record}/edit'),
         ];
     }
 }

@@ -32,14 +32,19 @@ class UserIpAddressResource extends Resource
         return $form
             ->schema([
                 Select::make('user_id')
-                ->relationship('user', 'name')
-                ->searchable()
-                ->required(),
+                    ->relationship('user', 'name')
+                    ->searchable()
+                    ->required()
+                    ->createOptionForm([
+                        TextInput::make('name')
+                            ->label('Nama')
+                            ->required(),
+                ]),
 
                 TextInput::make('ip_address')
                     ->label('IP Address')
                     ->required()
-                    ->unique()
+                    ->unique(ignoreRecord: true)
                     ->maxLength(45),
 
                 Select::make('asset_id')
@@ -47,6 +52,20 @@ class UserIpAddressResource extends Resource
                     ->searchable()
                     ->preload()
                     ->label('Aset Terkait')
+                    ->nullable(),
+
+                Select::make('location_id')
+                    ->label('Lokasi')
+                    ->relationship('location', 'name')
+                    ->searchable()
+                    ->preload()
+                    ->nullable(),
+                
+                Select::make('category_id')
+                    ->label('Category')
+                    ->relationship('category', 'name')
+                    ->searchable()
+                    ->preload()
                     ->nullable(),
 
                 DateTimePicker::make('assigned_at')
@@ -71,9 +90,12 @@ class UserIpAddressResource extends Resource
                 TextColumn::make('user.name')->label('User')->sortable()->searchable(),
                 TextColumn::make('ip_address')->label('IP Address')->searchable(),
                 TextColumn::make('asset.name')->label('Aset')->sortable()->toggleable(),
+                TextColumn::make('location.name')->label('Lokasi'),
+                TextColumn::make('category.name')->label('Category'),
                 TextColumn::make('assigned_at')->label('Ditugaskan')->dateTime(),
                 TextColumn::make('released_at')->label('Dilepas')->dateTime()->toggleable(),
             ])
+            
             ->filters([
                 //
             ])
@@ -98,8 +120,8 @@ class UserIpAddressResource extends Resource
     {
         return [
             'index' => Pages\ListUserIpAddresses::route('/'),
-            'create' => Pages\CreateUserIpAddress::route('/create'),
-            'edit' => Pages\EditUserIpAddress::route('/{record}/edit'),
+            // 'create' => Pages\CreateUserIpAddress::route('/create'),
+            // 'edit' => Pages\EditUserIpAddress::route('/{record}/edit'),
         ];
     }
 }

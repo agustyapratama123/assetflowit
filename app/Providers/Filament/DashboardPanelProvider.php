@@ -53,6 +53,8 @@ class DashboardPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-            ]);
+            ])
+            ->sidebarFullyCollapsibleOnDesktop()
+             ->brandName('IT RSPH');
     }
 }
